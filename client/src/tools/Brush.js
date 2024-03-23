@@ -19,7 +19,6 @@ export default class Brush extends Tool {
             id: this.id,
             figure: {
                 type:'finish',
-
             }
         }) )
     }
