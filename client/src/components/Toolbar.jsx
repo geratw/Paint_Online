@@ -13,6 +13,15 @@ const Toolbar = () => {
        toolState.setFillColor(color)
     }
 
+    const download = () => {
+        const dataUrl = canvasState.canvas.toDataURL()
+        const  a = document.createElement('a')
+        a.href= dataUrl
+        a.download = canvasState.sessionID + ".jpg"
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+    }
 
     return (
         <div className="toolbar">
@@ -31,7 +40,7 @@ const Toolbar = () => {
                 className="toolbar__btn undo"
             ></button>
             <button
-
+                onClick={()=> download()}
                 className="toolbar__btn save"></button>
             <button
                 onClick={()=> canvasState.redo()}
